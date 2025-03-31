@@ -14,14 +14,29 @@
 </head>
 <body class="bg-gray-900 text-white">
 
-    <!-- Header dengan Navigasi -->
-    <header class="bg-gray-800 p-4 text-center text-xl font-bold">
-        <nav class="flex justify-between items-center max-w-4xl mx-auto">
-            <h1 class="text-white">Custom ROM Poco X3 NFC</h1>
-            <ul class="flex space-x-4">
-                <li><a href="#roms" class="text-gray-300 hover:text-white">Daftar ROM</a></li>
-                <li><a href="#about" class="text-gray-300 hover:text-white">Tentang</a></li>
-            </ul>
+    <!-- Header dengan Burger Menu -->
+    <header class="bg-gray-800 p-4">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">Custom ROM Poco X3 NFC</h1>
+            
+            <!-- Tombol Burger -->
+            <button id="burger-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+
+            <!-- Navigasi (Desktop) -->
+            <nav class="hidden md:flex space-x-6">
+                <a href="#roms" class="text-gray-300 hover:text-white">Daftar ROM</a>
+                <a href="#about" class="text-gray-300 hover:text-white">Tentang</a>
+            </nav>
+        </div>
+
+        <!-- Navigasi Mobile -->
+        <nav id="mobile-nav" class="hidden flex-col space-y-4 mt-4 text-center md:hidden bg-gray-700 p-4 rounded-lg">
+            <a href="#roms" class="block text-gray-300 hover:text-white">Daftar ROM</a>
+            <a href="#about" class="block text-gray-300 hover:text-white">Tentang</a>
         </nav>
     </header>
 
@@ -36,7 +51,6 @@
     <section id="roms" class="p-8">
         <h2 class="text-2xl font-bold">Daftar Custom ROM</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-            <!-- ROM Card Template -->
             <div class="bg-gray-800 p-4 rounded-lg text-center hover:shadow-lg transition">
                 <img src="img/afl_logo.jpg" alt="AfterlifeOS" class="w-16 h-16 mx-auto mb-2">
                 <h3 class="text-xl font-bold">AfterlifeOS</h3>
@@ -68,6 +82,16 @@
     <footer class="text-center p-4 bg-gray-800 mt-8">
         &copy; 2025 HinohArata. All Rights Reserved.
     </footer>
+
+    <!-- Script Burger Menu -->
+    <script>
+        const burgerBtn = document.getElementById('burger-btn');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        burgerBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('hidden');
+        });
+    </script>
 
 </body>
 </html>
